@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #121214;
+    --text-color: #F8F8FC;
+    --primary-color: #42D3FF;
+    --controls-bg-color: #242424;
+    --button-secondary: #f8f8fc;
+
+    font-size: clamp(40%, 1% + 2vw, 62%5); /*tamanho da fonte se ajusta conforme o tamanho da tela*/
+}
+
+/*LIGHT*/
+
+html.light {
+    --bg-color: #f8f8fc;
+    --text-color: #121214;
+    --primary-color: #42D3FF;
+    --controls-bg-color: #242424;
+    --button-secondary: #f8f8fc
+}
+
+html.light .ph-sun,
+html:not(.light) .ph-moon { /*para esconder o botão modo escuro ou claro*/
+    display: none;
+}
+
+#toggle-mode {
+    color: var(--bg-color);
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+
+.sr-only {  /*ACESSIBILIDADE*/
+    width: .1rem;
+    height: .1rem;
+    position: absolute;
+    overflow: hidden;
+    margin: -.1rem;
+    padding: 0;
+    border: 0;
+    appearance: none;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#toggle-mode {
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    font-size: 3.2rem;
+    color: var(--text-color);
+}
+
+.timer {
+    font-size: 9.6rem;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+
+#controls {
+    background: var(--controls-bg-color);
+    margin-top: 1.6rem;
+    padding: 2.2rem 4rem;
+    display: flex;
+    gap: 1.6rem;
+    border-radius: 9.9rem;
+}
+
+button {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    font-size: 6.4rem;
+}
+
+.secondary {
+    color: var(--button-secondary);
+}
+
+/*CONTROLS*/
+.running .ph-play-circle,
+.running .ph-timer,
+.music-on .ph-speaker-none,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle,
+html:not(.music-on) .ph-speaker-high {
+    display: none;
+}
+
+@media (max-width: 70.0rem) {
+
+    #toggle-mode {
+        right: 11.5rem;
+    }
+
+    .timer span {
+        font-size: 7.3rem;
+    }
+
+    button {
+        font-size: 4.4rem;
+    }
+}
